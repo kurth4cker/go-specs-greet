@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	gospecsgreet "github.com/kurth4cker/go-specs-greet"
+	"github.com/kurth4cker/go-specs-greet/adapters/httpserver"
 	"github.com/kurth4cker/go-specs-greet/specifications"
 )
 
@@ -30,7 +30,7 @@ func TestGreeterServer(t *testing.T) {
 		runCmd.Process.Kill()
 	})
 
-	driver := gospecsgreet.Driver{
+	driver := httpserver.Driver{
 		BaseURL: "http://localhost:8080",
 		Client: &http.Client{
 			Timeout: 1 * time.Second,

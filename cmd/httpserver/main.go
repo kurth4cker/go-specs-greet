@@ -8,11 +8,11 @@ import (
 	"log"
 	"net/http"
 
-	gospecsgreet "github.com/kurth4cker/go-specs-greet"
+	"github.com/kurth4cker/go-specs-greet/adapters/httpserver"
 )
 
 func main() {
-	handler := http.HandlerFunc(gospecsgreet.Handler)
+	handler := http.HandlerFunc(httpserver.Handler)
 	if err := http.ListenAndServe(":8080", handler); err != nil {
 		log.Fatal(err)
 	}

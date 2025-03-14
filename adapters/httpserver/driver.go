@@ -2,7 +2,7 @@
 // SPDX-FileCopyright-Text: 2025 Cristopher James
 // SPDX-FileCopyright-Text: 2025 kurth4cker
 
-package gospecsgreet
+package httpserver
 
 import (
 	"io"
