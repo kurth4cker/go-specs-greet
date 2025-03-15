@@ -17,3 +17,10 @@ func TestGreet(t *testing.T) {
 		specifications.GreetAdapter(interactions.Greet),
 	)
 }
+
+func TestCurse(t *testing.T) {
+	specifications.CurseSpecification(
+		t,
+		specifications.CurseAdapter(interactions.Curse),
+	)
+}
