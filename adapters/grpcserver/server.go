@@ -1,3 +1,7 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyright-Text: 2025 Cristopher James
+// SPDX-FileCopyright-Text: 2025 kurth4cker
+
 package grpcserver
 
 import (
