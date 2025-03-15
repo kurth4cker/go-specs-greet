@@ -7,15 +7,24 @@ package interactions_test
 import (
 	"testing"
 
+	"github.com/alecthomas/assert/v2"
 	"github.com/kurth4cker/go-specs-greet/domain/interactions"
 	"github.com/kurth4cker/go-specs-greet/specifications"
 )
 
 func TestGreet(t *testing.T) {
-	specifications.GreetSpecification(
-		t,
-		specifications.GreetAdapter(interactions.Greet),
-	)
+	t.Run("specification", func(t *testing.T) {
+		specifications.GreetSpecification(
+			t,
+			specifications.GreetAdapter(interactions.Greet),
+		)
+	})
+
+	t.Run("empty name", func(t *testing.T) {
+		got := interactions.Greet("")
+		want := "hello world"
+		assert.Equal(t, want, got)
+	})
 }
 
 func TestCurse(t *testing.T) {
