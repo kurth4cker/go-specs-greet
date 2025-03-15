@@ -12,8 +12,9 @@ import (
 )
 
 func main() {
-	handler := http.HandlerFunc(httpserver.Handler)
-	if err := http.ListenAndServe(":8080", handler); err != nil {
+	http.HandleFunc("/curse", httpserver.CurseHandler)
+	http.HandleFunc("/greet", httpserver.GreetHandler)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
 }

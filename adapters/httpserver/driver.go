@@ -14,6 +14,19 @@ type Driver struct {
 	Client  *http.Client
 }
 
+func (d Driver) Curse(name string) (string, error) {
+	res, err := d.Client.Get(d.BaseURL + "/curse?name=" + name)
+	if err != nil {
+		return "", err
+	}
+	defer res.Body.Close()
+	curse, err := io.ReadAll(res.Body)
+	if err != nil {
+		return "", err
+	}
+	return string(curse), nil
+}
+
 func (d Driver) Greet(name string) (string, error) {
 	res, err := d.Client.Get(d.BaseURL + "/greet?name=" + name)
 	if err != nil {
