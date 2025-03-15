@@ -28,13 +28,12 @@ func RunServer(t testing.TB, port string, path string) {
 }
 
 func compileAndRunServer(directory string) (*exec.Cmd, error) {
-	buildCmd := exec.Command("go", "build", "-o", "httpserver", directory)
-	if err := buildCmd.Run(); err != nil {
+	err := exec.Command("go", "build", "-o", "server", directory).Run()
+	if err != nil {
 		return nil, err
 	}
-	defer exec.Command("go", "clean", ".").Run()
-
-	runCmd := exec.Command("./httpserver")
+	defer exec.Command("rm", "-f", "server").Run()
+	runCmd := exec.Command("./server")
 	if err := runCmd.Start(); err != nil {
 		return nil, err
 	}
