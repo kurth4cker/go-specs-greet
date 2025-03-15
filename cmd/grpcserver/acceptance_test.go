@@ -24,4 +24,5 @@ func TestGreeterServer(t *testing.T) {
 
 	adapters.RunServer(t, port, path)
 	specifications.GreetSpecification(t, &driver)
+	specifications.CurseSpecification(t, &driver)
 }
